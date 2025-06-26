@@ -1,4 +1,3 @@
-# Yoonus Kizhakkethil — Portfolio Website
 
 ![Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&width=1600&section=header&text=Yoonus%20Kizhakkethil%20Portfolio&fontSize=60&animation=fadeIn&fontAlignY=35)
 
