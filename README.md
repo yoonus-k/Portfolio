@@ -70,7 +70,7 @@ My Portfolio/
 1. **Clone the repo:**
    ```bash
    git clone https://github.com/yoonus-k/portfolio.git
-   cd portfolio/v2
+   cd portfolio
    ```
 2. **Install dependencies:**
    ```bash
