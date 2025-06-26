@@ -40,13 +40,13 @@ const HomePage = () => {
       {/* Page Content */}
       <div className="relative z-10">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Hero />
+        <Hero />
         </div>
         <About />
         <Experience />
-        <Tech />
         {/* Add key prop to force re-render if there were any WebGL issues */}
         <Works key={`works-${Date.now()}`} />
+        <Tech />
         <Contact />
         <Footer />
       </div>

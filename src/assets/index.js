@@ -46,10 +46,7 @@ import ai7 from "./projects/ai7.png";
 import ai8 from "./projects/ai8.png";
 import ai9 from "./projects/ai9.png";
 
-
-
-
-// Import tech logos
+// Import tech logos (all lowercase for compatibility)
 import css from "./tech/css.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
@@ -58,20 +55,20 @@ import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import threejs from "./tech/threejs.png";
-import csharp from "./tech/cSharp.png";
-import sqlite from "./tech/SQLite.png";
-import postgres from "./tech/PostgresSQL.png";
-import php from "./tech/PHP.png";
-import oracle from "./tech/Oracle.png";
-import nextjs from "./tech/NextJs.png";
-import mysql from "./tech/MySQL.png";
-import mongodb from "./tech/MongoDB.png";
-import laravel from "./tech/Laravel.png";
-import firebase from "./tech/Firebase.png";
-import figma from "./tech/Figma.png";
-import canva from "./tech/Canva.png";
-import aws from "./tech/AWS.png";
-import bootstrap from "./tech/Bootstrap.png";
+import csharp from "./tech/csharp.png";
+import sqlite from "./tech/sqlite.png";
+import postgres from "./tech/postgres.png";
+import php from "./tech/php.png";
+import oracle from "./tech/oracle.png";
+import nextjs from "./tech/nextjs.png";
+import mysql from "./tech/mysql.png";
+import mongodb from "./tech/mongodb.png";
+import laravel from "./tech/laravel.png";
+import firebase from "./tech/firebase.png";
+import figma from "./tech/figma.png";
+import canva from "./tech/canva.png";
+import aws from "./tech/aws.png";
+import bootstrap from "./tech/bootstrap.png";
 import pmp from "./tech/pmp.png";
 import se from "./tech/se.png";
 
@@ -125,7 +122,6 @@ export {
   portfolio,
   portfolio2,
   portfolio3,
-
 
   // Tech icons
   css,

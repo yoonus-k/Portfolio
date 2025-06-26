@@ -50,62 +50,36 @@ const ExperienceCard = ({ experience, index }) => {
             : "none",
           transition: "border-color 0.4s ease-in-out"
         }}
-        date={
-          <motion.span 
-            className="text-secondary font-medium"
-            whileHover={{ scale: 1.1, color: "#00CFFF" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            {experience.date}
-          </motion.span>
-        }
+        date=""
         iconStyle={{ 
           background: experience.iconBg,
           border: isHovered ? "4px solid #00CFFF" : "4px solid rgba(0, 207, 255, 0.5)",
           transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: isHovered ? "scale(1.15)" : "scale(1)",
+          transform: isHovered ? "scale(1.25)" : "scale(1.5)",
           boxShadow: isHovered 
             ? "0 0 30px rgba(0, 207, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3)" 
             : "0 0 15px rgba(0, 207, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1)",
           backdropFilter: "blur(5px)",
+          marginTop: "20px" // Move the logo slightly below
         }}
         icon={
           <motion.div 
             className="flex justify-center items-center w-full h-full rounded-full bg-opacity-70"
-            whileHover={{ rotate: 360 }}
-            whileInView={{ 
-              scale: [1, 1.15, 1],
-              rotate: [0, 10, 0]
-            }}
-            animate={{
-              boxShadow: [
-                "inset 0 0 5px rgba(0, 207, 255, 0.3)",
-                "inset 0 0 15px rgba(0, 207, 255, 0.5)",
-                "inset 0 0 5px rgba(0, 207, 255, 0.3)"
-              ]
-            }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ 
-              duration: 1.5, 
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse" 
-            }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <img
               src={experience.icon}
               alt={experience.company_name}
               className="w-[75%] h-[75%] object-contain filter drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300"
-              style={{ 
-                transform: isHovered ? 'scale(1.1)' : 'scale(1)',
-                transition: 'transform 0.3s ease'
-              }}
             />
           </motion.div>
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {/* No external date badges anymore - they'll be at the bottom */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -174,6 +148,27 @@ const ExperienceCard = ({ experience, index }) => {
             ))}
           </motion.ul>
 
+          {/* Date badge at the bottom of each card */}
+          <motion.div 
+            className="flex justify-end mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <motion.div 
+              className="inline-block px-4 py-2 bg-gradient-to-r from-[#FFD700] to-[#00CFFF] rounded-full shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              style={{
+                boxShadow: isHovered ? "0 0 20px rgba(0, 207, 255, 0.7)" : "0 0 15px rgba(0, 207, 255, 0.5)",
+              }}
+            >
+              <span className="text-black font-bold text-sm">
+                {experience.date || 'Date not available'}
+              </span>
+            </motion.div>
+          </motion.div>
+
           {/* Interactive timeline connector */}
           {isHovered && (
             <motion.div
@@ -211,6 +206,46 @@ const Experience = () => {
       }
       .vertical-timeline-element-content-arrow {
         filter: drop-shadow(0 0 0 transparent) !important;
+      }
+      
+      /* Premium Date Styling */
+      .premium-date {
+        background: linear-gradient(to right, #FFD700, #00CFFF) !important;
+        color: #000 !important;
+        font-weight: bold !important;
+        padding: 8px 12px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 0 15px rgba(0, 207, 255, 0.5) !important;
+        display: inline-block !important;
+        text-shadow: 0px 0px 2px white !important;
+        position: relative !important;
+        z-index: 10 !important;
+      }
+      
+      /* Ensure date is always visible */
+      .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+        position: absolute !important;
+        width: auto !important;
+        left: 120% !important;
+        top: 6px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      
+      .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
+        left: auto !important;
+        right: 120% !important;
+        text-align: right !important;
+      }
+      
+      /* Mobile adjustments - keep the premium style */
+      @media only screen and (max-width: 1169px) {
+        .vertical-timeline-element-content .vertical-timeline-element-date {
+          display: inline-block !important;
+          margin-top: 10px !important;
+          margin-bottom: 10px !important;
+          opacity: 1 !important;
+        }
       }
     `;
     document.head.appendChild(style);

@@ -5,13 +5,30 @@ import { fadeIn, slideIn } from "../utils/motion";
 import BackToTop from "./BackToTop";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
 
-// Configure PDF.js worker just like in v1
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// Configure PDF.js worker with HTTPS to avoid mixed content issues
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.mjs`
 
 const ResumeNew = () => {
   const [width, setWidth] = useState(1200);
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const PDF_PATH = '/YOONUS_PMP_SW_AI.pdf';
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+    setLoading(false);
+    setError(false);
+  }
+
+  function onDocumentLoadError(error) {
+    console.error("Error loading PDF:", error);
+    setError(true);
+    setLoading(false);
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,8 +72,38 @@ const ResumeNew = () => {
           className="mb-8 flex flex-col items-center"
         >
           <div className="mb-8 w-full flex justify-center p-4 bg-tertiary/30 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl">
-            <Document file={PDF_PATH} className="flex justify-center">
-              <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+            <Document 
+              file={PDF_PATH} 
+              className="flex justify-center"
+              onLoadSuccess={onDocumentLoadSuccess}
+              onLoadError={onDocumentLoadError}
+              loading={
+                <div className="flex justify-center items-center h-[400px]">
+                  <div className="animate-pulse text-[#00CFFF] font-mono">Loading PDF...</div>
+                </div>
+              }
+              error={
+                <div className="flex flex-col justify-center items-center h-[400px] w-full">
+                  <p className="text-white text-xl mb-4">Failed to load PDF file.</p>
+                  <a 
+                    href={PDF_PATH} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#00CFFF] underline hover:text-[#915EFF]"
+                  >
+                    Click here to view directly
+                  </a>
+                </div>
+              }
+            >
+              {!error && !loading && (
+                <Page 
+                  pageNumber={1} 
+                  scale={width > 786 ? 1.7 : 0.6} 
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                />
+              )}
             </Document>
           </div>
 

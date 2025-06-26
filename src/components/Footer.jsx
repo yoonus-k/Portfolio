@@ -9,8 +9,8 @@ const Footer = () => {
     const style = document.createElement('style');
     style.innerHTML = `
       .footer-blur-background {
-        backdrop-filter: blur(10px);
-        background-image: linear-gradient(to bottom, rgba(10, 4, 22, 0.3), rgba(10, 4, 22, 0.7), rgba(10, 4, 22, 0.9));
+        backdrop-filter: blur(15px);
+        background-image: linear-gradient(to bottom, rgba(10, 4, 22, 0.2), rgba(10, 4, 22, 0.5), rgba(10, 4, 22, 0.8));
       }
     `;
     document.head.appendChild(style);
@@ -59,39 +59,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative w-full min-h-screen bg-primary overflow-hidden">
-      {/* Black Hole Video Background - No blur */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="hidden sm:block w-full h-full object-cover absolute inset-0"
-          style={{ 
-            filter: 'brightness(0.8)', 
-            objectPosition: 'center 30%'
-          }}
-        >
-          <source src="/webm/blackhole.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Dark gradient overlay for video */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/95"></div>
-        
-        {/* Cyan glow effect matching hero section */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00CFFF]/5 to-[#00CFFF]/15"></div>
-        
-        {/* Subtle animated blobs matching hero section */}
-        <div className="absolute bottom-0 right-20 w-72 h-72 bg-[#00CFFF] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-[#FFD700] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
-      </div>
-
+    <footer className="relative w-full bg-primary overflow-hidden">
       {/* Content with blur background - align top to center of video */}
-      <div className="relative z-20 min-h-screen flex flex-col justify-end">
-        {/* Spacer to push blurred section to video center */}
-        <div className="hidden sm:block" style={{ height: '38vh' }}></div>
+      <div className="relative z-20 flex flex-col justify-end">
+        {/* Spacer to push blurred section to video center (reduced for alignment) */}
+        <div className="hidden sm:block" style={{ height: '45vh' }}></div>
         
         {/* Main Content Area with blur - positioned at the bottom */}
         <div className="w-full backdrop-blur-md bg-black/10 border-t border-[#00CFFF]/10">
@@ -246,6 +218,34 @@ const Footer = () => {
             </motion.div>
           </div>
         </div>
+      </div>
+
+      {/* Black Hole Video Background - moved to the bottom and aligned with divider */}
+      <div className="absolute inset-x-0 bottom-1 w-full h-full z-0 pointer-events-none">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="hidden sm:block w-full h-full object-cover absolute inset-0"
+          style={{ 
+            filter: 'brightness(1)', 
+            objectPosition: 'center 20%' // Align blackhole center with top of content
+          }}
+        >
+          <source src="/webm/blackhole.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark gradient overlay for video */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/95"></div>
+        
+        {/* Cyan glow effect matching hero section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00CFFF]/5 to-[#00CFFF]/15"></div>
+                {/* Subtle animated blobs matching hero section */}
+        <div className="absolute bottom-0 right-20 w-72 h-72 bg-[#00CFFF] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-[#FFD700] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
+
       </div>
     </footer>
   );

@@ -31,7 +31,7 @@ const Navbar = () => {
       document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
     }
     setActive(link.title);
-    if (toggle) setToggle(false);
+    setToggle(false); // Ensure the navbar closes after navigation
   };
 
   useEffect(() => {
@@ -47,8 +47,27 @@ const Navbar = () => {
     AiOutlineLinkedin: AiOutlineLinkedin,
   };
 
+  // Custom breakpoint for 1200px
+  const [showMobileView, setShowMobileView] = useState(false);
+
+  // Check window width on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setShowMobileView(window.innerWidth < 1200);
+    };
+    
+    // Initialize on mount
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const renderNavLinks = () => (
-    <ul className="list-none hidden sm:flex flex-row gap-8">
+    <ul className={`list-none ${showMobileView ? "hidden" : "hidden sm:flex"} flex-row gap-8`}>
       {navLinks.map((link) => {
         const Icon = iconMap[link.icon];
         if (link.url) {
@@ -92,6 +111,29 @@ const Navbar = () => {
     </ul>
   );
 
+  // Effect to handle clicks outside the navbar
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      // Get the sidebar element and the burger menu icon
+      const sidebar = document.querySelector('.fixed.top-0.right-0.h-screen');
+      const menuIcon = document.querySelector('.w-\\[28px\\].h-\\[18px\\]');
+      
+      // Close the sidebar if click is outside the sidebar and not on the menu icon
+      if (toggle && sidebar && !sidebar.contains(event.target) && 
+          menuIcon && !menuIcon.contains(event.target)) {
+        setToggle(false);
+      }
+    };
+    
+    // Add event listener for clicks on document
+    document.addEventListener('mousedown', handleOutsideClick);
+    
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [toggle]);
+
   return (
     <>
       <nav
@@ -123,11 +165,11 @@ const Navbar = () => {
             </div>
             <p className="text-white text-[20px] font-bold cursor-pointer flex">
               YOONUS&nbsp;
-              <span className="sm:block hidden">KIZHAKKETHIL</span>
+              <span className={`${showMobileView ? "hidden" : "hidden sm:block"}`}>KIZHAKKETHIL</span>
             </p>
           </Link>
           {renderNavLinks()}
-          <div className="sm:hidden flex flex-1 justify-end items-center">
+          <div className={`${showMobileView ? "flex" : "sm:hidden flex"} flex-1 justify-end items-center`}>
             <img
               src={toggle ? close : menu}
               alt="menu"

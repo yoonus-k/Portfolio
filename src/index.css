@@ -1003,7 +1003,7 @@ html {
 .sidebar-nav-item:nth-child(5) { animation-delay: 0.5s; }
 .sidebar-nav-item:nth-child(6) { animation-delay: 0.6s; }
 
-/* Advanced Backdrop Effects */
+/* Enhanced Backdrop Effects */
 .enhanced-backdrop {
   backdrop-filter: blur(20px) saturate(180%);
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(26, 26, 46, 0.6));
@@ -1155,4 +1155,11 @@ li.group .navbar-underline {
 /* Remove blue glow for tech badges */
 .animate-glow-blue {
   animation: none;
+}
+
+body {
+  background: radial-gradient(circle, rgba(18,18,18,1) 0%, rgba(18,18,18,0.8) 50%, rgba(28,28,28,1) 100%);
+  color: #fff;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }

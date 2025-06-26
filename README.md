@@ -1,8 +1,6 @@
-<div align="center">
+# Yoonus Kizhakkethil — Portfolio Website
 
-![Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Yoonus%20Kizhakkethil%20Portfolio&fontSize=70&animation=fadeIn&fontAlignY=35)
-
-# 🚀 Yoonus Kizhakkethil — Portfolio Website V2
+![Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&width=1600&section=header&text=Yoonus%20Kizhakkethil%20Portfolio&fontSize=60&animation=fadeIn&fontAlignY=35)
 
 [![License](https://img.shields.io/github/license/yoonus-k/portfolio?style=flat-square)](LICENSE)
 [![Website](https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fyoonus.dev)](https://yoonus.dev)
@@ -10,11 +8,9 @@
 [![Vite](https://img.shields.io/badge/Vite-Next%20Gen%20Frontend-646cff?logo=vite&style=flat-square)](https://vitejs.dev)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Utility%20First-38bdf8?logo=tailwindcss&style=flat-square)](https://tailwindcss.com)
 
-<p align="center">
-  <b>A premium, modern, and fully responsive portfolio website for professionals, engineers, and creatives.<br>
-  Built with React, Vite, Tailwind CSS, Framer Motion, and Three.js.<br>
-  Showcasing experience, projects, and skills with beautiful UI, smooth animations, and interactive 3D visuals.</b>
-</p>
+A premium, modern, and fully responsive portfolio website for professionals, engineers, and creatives.
+Built with React, Vite, Tailwind CSS, Framer Motion, and Three.js.
+Showcasing experience, projects, and skills with beautiful UI, smooth animations, and interactive 3D visuals.
 
 ---
 
@@ -34,42 +30,39 @@
 
 ## 🖥️ Demo
 
-> **Live Site:** [yoonus.dev](https://yoonus.dev)  
-> **Screenshots:** See `/Images/readme-img.png` and `/Images/readme-img1.png`
+**Live Site:** [yoonus.dev](https://yoonus.dev)
+
+**Screenshots:** See `/Images/readme-img.png` and `/Images/readme-img1.png`
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 My Portfolio/
-  ├── public/           # Static assets (images, 3D models, resume PDF)
-  ├── src/
-  │   ├── assets/       # Images, icons, and static assets
-  │   ├── components/   # All React components (Hero, About, Works, Resume, etc.)
-  │   ├── constants/    # Navigation and data constants
-  │   ├── hoc/          # Higher-order components (SectionWrapper)
-  │   ├── utils/        # Utility functions (motion, error monitoring)
-  │   ├── styles.js     # Centralized style definitions
-  │   ├── index.css     # Tailwind and custom CSS
-  │   └── main.jsx      # App entry point
-  ├── tailwind.config.js
-  ├── vite.config.js
-  └── ...
+├── public/           # Static assets (images, 3D models, resume PDF)
+├── src/
+│   ├── assets/       # Images, icons, and static assets
+│   ├── components/   # All React components (Hero, About, Works, Resume, etc.)
+│   ├── constants/    # Navigation and data constants
+│   ├── hoc/          # Higher-order components (SectionWrapper)
+│   ├── utils/        # Utility functions (motion, error monitoring)
+│   ├── styles.js     # Centralized style definitions
+│   ├── index.css     # Tailwind and custom CSS
+│   └── main.jsx      # App entry point
+├── tailwind.config.js
+├── vite.config.js
+└── ...
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-<div align="center">
-
-| Frontend         | Styling         | Animation         | 3D/Visuals      | Email/Forms | Hosting  |
-|------------------|----------------|-------------------|-----------------|------------|----------|
-| React.js         | Tailwind CSS   | Framer Motion     | Three.js        | EmailJS     | Vercel   |
-| Vite             | Custom CSS     | React Spring      | @react-three/fiber |           | Netlify  |
-
-</div>
+| Frontend         | Styling         | Animation         | 3D/Visuals           | Email/Forms | Hosting  |
+|------------------|----------------|-------------------|----------------------|-------------|----------|
+| React.js         | Tailwind CSS   | Framer Motion     | Three.js             | EmailJS     | Vercel   |
+| Vite             | Custom CSS     | React Spring      | @react-three/fiber   |             | Netlify  |
 
 ---
 

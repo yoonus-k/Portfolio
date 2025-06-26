@@ -1,105 +1,176 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/drei";
-import CanvasLoader from "../Loader";
+import React from "react";
+import { motion } from "framer-motion";
 
-const Ball = React.memo(({ iconUrl }) => {
-  // Try-catch block to handle errors
-  let decal;
-  try {
-    [decal] = useTexture([iconUrl]);
-  } catch (error) {
-    console.error("Error in useTexture:", error);
-    // Return a simplified ball without decal in case of error
-    return (
-      <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-        <ambientLight intensity={0.25} />
-        <directionalLight position={[0, 0, 0.05]} />
-        <mesh castShadow receiveShadow scale={2.75}>
-          <icosahedronGeometry args={[1, 1]} />
-          <meshStandardMaterial color='#ff5555' polygonOffset polygonOffsetFactor={-5} flatShading />
-        </mesh>
-      </Float>
-    );
-  }
-
+// Premium animated tech icon with perfectly circular metallic glossy ball effect
+const TechGrid = ({ icon }) => {
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color='#fff8eb' polygonOffset polygonOffsetFactor={-5} flatShading />
-        {decal && <Decal position={[0, 0, 1]} rotation={[2 * Math.PI, 0, 6.25]} scale={1} map={decal} flatShading />}
-      </mesh>
-    </Float>
-  );
-});
-
-const BallCanvas = ({ icon }) => {
-  // Use state to track if the texture is loaded
-  const [isReady, setIsReady] = useState(false);
-  // Track if we're on mobile for performance optimizations
-  const [isMobile, setIsMobile] = useState(false);
-  
-  // Check if device is mobile for performance optimization
-  useEffect(() => {
-    // Media query for mobile devices
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    setIsMobile(mediaQuery.matches);
-    
-    // Handle resize events to update mobile status
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-    
-    // Add listener for screen size changes
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
-    
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
-    };
-  }, []);
-  
-  // Force immediate loading of the texture
-  useEffect(() => {
-    // Preload the image
-    const img = new Image();
-    img.src = icon;
-    img.onload = () => setIsReady(true);
-    
-    // Set a backup timeout in case the image load event doesn't fire
-    const timer = setTimeout(() => {
-      setIsReady(true);
-    }, isMobile ? 100 : 300); // Faster timeout on mobile for better performance
-    
-    return () => clearTimeout(timer);
-  }, [icon, isMobile]);
-    return (
-    <Canvas 
-      frameloop={isMobile ? "demand" : "always"} // Use demand on mobile for better performance
-      dpr={isMobile ? [0.5, 1.0] : [0.8, 1.2]} // Lower resolution on mobile for better performance
-      gl={{ 
-        preserveDrawingBuffer: true,
-        powerPreference: isMobile ? 'low-power' : 'default',
-        antialias: !isMobile, // Disable antialiasing on mobile for performance
+    <motion.div
+      whileHover={{ 
+        scale: 1.12,
+        filter: "drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(200, 200, 255, 0.6)) drop-shadow(0 0 3px rgba(255, 215, 0, 0.4))"
       }}
-      style={{ willChange: 'transform' }} // Performance optimization
+      className="flex items-center justify-center"
+      style={{
+        aspectRatio: "1/1", // Enforce 1:1 aspect ratio
+        width: "100%",
+        height: "100%"
+      }}
     >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
-          enableRotate={true}
-          autoRotate={true}
-          autoRotateSpeed={0.8} // Slightly faster rotation for better visibility
-          rotateSpeed={0.4}
+      <div
+        className="relative rounded-full flex items-center justify-center"
+        style={{ 
+          width: '100%', 
+          height: '100%',
+          overflow: 'hidden',
+          aspectRatio: "1/1" // Ensure perfect circle
+        }}
+      >
+        {/* Premium metallic white base sphere with enhanced metallic gradient */}
+        <div 
+          className="absolute inset-0 rounded-full"
+          style={{ 
+            background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 1), rgba(220, 220, 235, 0.8), rgba(180, 180, 210, 0.9))',
+            boxShadow: '0 10px 30px rgba(255, 255, 255, 0.4), inset 0 -10px 20px rgba(160, 160, 180, 0.5), inset 0 10px 20px rgba(255, 255, 255, 0.8)',
+            border: '1px solid rgba(230, 230, 250, 0.8)',
+            zIndex: 1
+          }}
         />
-        {isReady && <Ball iconUrl={icon} />}
-        <Preload all />
-      </Suspense>
-    </Canvas>
+
+        {/* Enhanced metallic light reflection overlay */}
+        <div 
+          className="absolute rounded-full"
+          style={{
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 20%, rgba(200, 200, 220, 0.2) 50%, rgba(150, 150, 170, 0.4) 80%, rgba(130, 130, 150, 0.6) 100%)',
+            zIndex: 2
+          }}
+        />
+        
+        {/* Additional metallic highlight for enhanced 3D effect */}
+        <div 
+          className="absolute rounded-full"
+          style={{
+            width: '60%',
+            height: '60%',
+            top: '5%',
+            left: '5%',
+            background: 'linear-gradient(120deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 60%)',
+            zIndex: 3
+          }}
+        />
+
+        {/* Metallic shine line */}
+        <div 
+          className="absolute"
+          style={{
+            width: '15%',
+            height: '80%',
+            top: '10%',
+            left: '30%',
+            background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
+            borderRadius: '50%',
+            transform: 'rotate(-30deg)',
+            zIndex: 3
+          }}
+        />
+
+        {/* Enhanced metallic bottom reflection */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '80%',
+            height: '40%',
+            bottom: '0%',
+            left: '10%',
+            background: 'radial-gradient(ellipse at center, rgba(160, 160, 180, 0.6) 0%, rgba(100, 100, 120, 0.2) 50%, transparent 70%)',
+            filter: 'blur(4px)',
+            zIndex: 2
+          }}
+        />
+        
+        {/* Premium gold accent reflection */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '60%',
+            height: '20%',
+            bottom: '10%',
+            left: '20%',
+            background: 'radial-gradient(ellipse at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%)',
+            filter: 'blur(8px)',
+            zIndex: 3
+          }}
+        />
+
+        {/* Enhanced top-right highlight */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '30%',
+            height: '30%',
+            top: '10%',
+            right: '20%',
+            background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0%, transparent 70%)',
+            filter: 'blur(3px)',
+            zIndex: 3
+          }}
+        />
+
+        {/* Tech icon with enhanced premium metallic glow */}
+        <div className="relative z-10 flex items-center justify-center" style={{width: '100%', height: '100%'}}>
+          <img
+            src={icon}
+            alt="Tech Icon"
+            className="relative"
+            style={{ 
+              width: '60%',
+              height: '60%',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 2px 3px rgba(50, 50, 70, 0.4))',
+              zIndex: 10
+            }}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Enhanced metallic outer glow with depth effect */}
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            boxShadow: '0 10px 30px rgba(255, 255, 255, 0.3), 0 5px 15px rgba(200, 200, 220, 0.5), 0 -5px 15px rgba(150, 150, 180, 0.15)',
+            zIndex: 0
+          }}
+        />
+        
+        {/* Premium metallic rim with chrome effect and gold accent */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '100%',
+            height: '100%',
+            border: '1px solid rgba(255, 255, 255, 0.9)',
+            boxShadow: 'inset 0 0 4px 1px rgba(180, 180, 210, 0.5), inset 0 0 2px 1px rgba(255, 215, 0, 0.2)',
+            zIndex: 5
+          }}
+        />
+        
+        {/* Outer metallic ring for enhanced depth */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '104%',
+            height: '104%',
+            top: '-2%',
+            left: '-2%',
+            border: '1px solid rgba(220, 220, 240, 0.4)',
+            boxShadow: '0 0 5px 1px rgba(255, 255, 255, 0.3)',
+            zIndex: 1
+          }}
+        />
+      </div>
+    </motion.div>
   );
 };
 
-export default BallCanvas;
+export default TechGrid;

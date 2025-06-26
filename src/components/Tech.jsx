@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { BallCanvas } from "./canvas";
+import TechGrid from "./canvas/Ball"; // Updated import to use new TechGrid component
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import { motion } from "framer-motion";
@@ -289,14 +289,14 @@ function Tech() {
             <div className="flex flex-row gap-10 py-4 px-12 min-w-max">
               {techCategories[activeCategory].map(({ name, icon }) => (
                 <motion.div 
-                  className="w-28 h-28 flex-shrink-0 flex flex-col items-center justify-center"
+                  className="w-28 flex-shrink-0 flex flex-col items-center justify-center"
                   key={`desktop-${name}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="w-24 h-24">
-                    <BallCanvas icon={icon} />
+                  <div className="w-24" style={{ aspectRatio: "1/1" }}>
+                    <TechGrid icon={icon} />
                   </div>
                   <p className="text-center mt-1 text-white text-[14px] font-medium">{name}</p>
                 </motion.div>
@@ -316,8 +316,8 @@ function Tech() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="w-20 h-20">
-                  <BallCanvas icon={icon} />
+                <div className="w-20" style={{ aspectRatio: "1/1" }}>
+                  <TechGrid icon={icon} />
                 </div>
                 <p className="text-center mt-1 text-white text-[12px] font-medium">{name}</p>
               </motion.div>

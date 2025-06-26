@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#050816',
+        primary: '#080c14', // Adjusted to better match the blackhole background
         secondary: '#aaa6c3',
         tertiary: '#151030',
         'black-100': '#100d25',
@@ -16,6 +16,7 @@ module.exports = {
       },
       screens: {
         xs: '450px',
+        '2xl': '1200px',
       },      backgroundImage: {
         'hero-pattern': `url(/herobg.png)`,
       },      animation: {
