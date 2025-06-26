@@ -38,7 +38,7 @@ Showcasing experience, projects, and skills with beautiful UI, smooth animations
 ## 📂 Project Structure
 
 ```text
-My Portfolio/
+Portfolio/
 ├── public/           # Static assets (images, 3D models, resume PDF)
 ├── src/
 │   ├── assets/       # Images, icons, and static assets
