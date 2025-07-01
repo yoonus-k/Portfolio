@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const BackToTop = () => {
+const BackToTop = ({ hide }) => {
+  if (hide) return null;
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,8 @@ const BackToTop = () => {
       top: 0,
       behavior: 'smooth'
     });
+    // Dispatch a custom event to close the modal
+    window.dispatchEvent(new Event("closeProjectModal"));
   };
 
   return (

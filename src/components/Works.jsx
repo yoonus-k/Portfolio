@@ -234,6 +234,22 @@ const Works = () => {
       }
     }, 300);
   };
+
+  // useeffect to handle the modelopen and close events
+  useEffect(() => {
+    // if the modal is open, prevent body scroll
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px'; // Prevent layout shift
+    }
+    // if the modal is closed, allow body scroll
+    else {
+      console.log("Modal closed, restoring body styles");
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    }
+
+  }, [isModalOpen]);
   
   return (
     <>

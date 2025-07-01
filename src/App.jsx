@@ -5,11 +5,11 @@ import BackToTop from './components/BackToTop';
 import Footer from './components/Footer';
 import { setupWebGLErrorMonitoring, checkWebGLSupport } from './utils/errorMonitor';
 
+
 const HomePage = () => {
   // Use React.lazy to enable code-splitting for heavy components
   const [showStars, setShowStars] = React.useState(false);
   const [webGLSupported, setWebGLSupported] = React.useState(true);
-  
   // Check WebGL support and setup error monitoring
   React.useEffect(() => {
     // Check WebGL support before attempting to render Three.js components
@@ -28,6 +28,7 @@ const HomePage = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
     return (
     <div className="relative">
       {/* Load stars only after initial render and if WebGL is supported */}
@@ -49,12 +50,14 @@ const HomePage = () => {
         <Tech />
         <Contact />
         <Footer />
+        <BackToTop />
       </div>
     </div>
   );
 };
 
 const App = () => {
+
   return (
     <BrowserRouter
       future={{
@@ -62,11 +65,11 @@ const App = () => {
         v7_relativeSplatPath: true,
       }}
     >      <div className="relative z-0 bg-primary">
-        <Navbar />        <Routes>
+        <Navbar  />
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>
-        <BackToTop />
       </div>
     </BrowserRouter>
   );

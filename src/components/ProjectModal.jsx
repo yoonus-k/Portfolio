@@ -27,23 +27,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
     }
   }, [galleryImages.length]);
 
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '15px'; // Prevent layout shift
-    } else {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = '0px';
-    }
-
-    // Cleanup function
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = '0px';
-    };
-  }, [isOpen]);
-
   // Reset currentImageIndex and isImageZoomed when project changes or modal reopens
   useEffect(() => {
     if (isOpen && project) {
@@ -68,6 +51,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, project, galleryImages.length, nextImage, prevImage]);
 
+
+
   // Auto-swiping images in the gallery
   useEffect(() => {
     if (isOpen && galleryImages.length > 1) {
@@ -79,6 +64,44 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
     }
   }, [isOpen, galleryImages.length, nextImage]);
 
+  // Use effect for proper handling of back button events
+  useEffect(() => {
+    // Function to handle the back button press
+    const handleBackButton = (e) => {
+      console.log('Back button pressed in ProjectModal');
+      // First check if zoomed image is open
+      if (isImageZoomed) {
+        setIsImageZoomed(false);
+        // We need to prevent default only if we're handling something
+        e.preventDefault();
+        // Push another history entry so the next back button press closes the modal
+        window.history.pushState({ modal: 'project' }, '');
+      } 
+      // Otherwise close the modal
+      else if (isOpen) {
+        onClose();
+        e.preventDefault();
+      }
+    };
+    
+    // Only set up the history listener when the modal is open
+    if (isOpen) {
+      // Add a history entry when modal opens
+      window.history.pushState({ modal: 'project' }, '');
+      window.addEventListener('popstate', handleBackButton);
+    }
+    
+    // Clean up the event listener when component unmounts or modal closes
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, [isOpen, isImageZoomed, onClose]);
+
+  useEffect(() => {
+  window.addEventListener("closeProjectModal", onClose);
+  return () => window.removeEventListener("closeProjectModal", onClose);
+}, []);
+  
   if (!project) return null;
 
   const modalVariants = {
