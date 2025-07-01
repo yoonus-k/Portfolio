@@ -38,7 +38,7 @@ Showcasing experience, projects, and skills with beautiful UI, smooth animations
 ## 📂 Project Structure
 
 ```text
-My Portfolio/
+Portfolio/
 ├── public/           # Static assets (images, 3D models, resume PDF)
 ├── src/
 │   ├── assets/       # Images, icons, and static assets
@@ -70,7 +70,7 @@ My Portfolio/
 1. **Clone the repo:**
    ```bash
    git clone https://github.com/yoonus-k/portfolio.git
-   cd portfolio/v2
+   cd portfolio
    ```
 2. **Install dependencies:**
    ```bash
