@@ -10,39 +10,26 @@ import { styles } from "../styles";
 const ProjectCard = ({ project, index, onClick }) => {
   return (
     <motion.div 
-      variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+      variants={fadeIn("up", "spring", index * 0.1, 0.5)}
       className="w-full"
       whileHover={{ 
-        scale: 1.02,
-        y: -8,
-        zIndex: 10,
-        transition: { duration: 0.3, ease: "easeOut" }
+        y: -4,
+        transition: { duration: 0.2 }
       }}
-      whileTap={{ scale: 0.98 }}
       initial={{ 
-        scale: 1,
-        y: 0,
-        zIndex: 1
+        opacity: 0,
+        y: 20
       }}
       animate={{ 
-        scale: 1,
-        y: 0,
-        zIndex: 1
+        opacity: 1,
+        y: 0
       }}
-      whileInView={{ 
-        scale: [0.95, 1],
-        opacity: [0.8, 1],
-        transition: { duration: 0.6, ease: "easeOut" }
-      }}
-      viewport={{ once: true, amount: 0.3 }}
+      transition={{ delay: index * 0.1, duration: 0.4 }}
     >
       <div 
-        className={`relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full bg-tertiary/30 backdrop-blur-sm rounded-xl border-2 border-[#FFD700]/30 hover:border-[#FFD700]/50`}
+        className={`relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200 group cursor-pointer h-full bg-tertiary/30 backdrop-blur-sm rounded-xl border-2 border-[#FFD700]/30 hover:border-[#FFD700]/50`}
         onClick={onClick}
       >
-        {/* Subtle gradient overlay with animation */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-br from-[#FFD700]/10 via-transparent to-[#FFD700]/10 rounded-xl"></div>
-        
         {/* Content wrapper */}
         <div className="relative z-10">
           {/* Project Image */}
@@ -50,7 +37,7 @@ const ProjectCard = ({ project, index, onClick }) => {
             <img
               src={project.image}
               alt={project.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
             />
             
             {/* Gradient overlay */}
@@ -64,35 +51,31 @@ const ProjectCard = ({ project, index, onClick }) => {
             </div>
             
             {/* Action buttons overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-4">
               {project.source_code_link && project.source_code_link !== "#" && (
-                <motion.button
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(project.source_code_link, "_blank");
                   }}
-                  className="bg-black/80 hover:bg-[#FFD700]/80 text-white hover:text-black p-4 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:border-[#FFD700] shadow-xl"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="bg-black/80 hover:bg-[#FFD700]/80 text-white hover:text-black p-4 rounded-full transition-colors duration-200 backdrop-blur-sm border border-white/20 hover:border-[#FFD700] shadow-xl"
                 >
                   <img src={github} alt="github" className="w-6 h-6" />
-                </motion.button>
+                </button>
               )}
               
               {project.live_demo_link && project.live_demo_link !== "#" && (
-                <motion.button
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(project.live_demo_link, "_blank");
                   }}
-                  className="bg-black/80 hover:bg-[#FFD700]/80 text-white hover:text-black p-4 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:border-[#FFD700] shadow-xl"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="bg-black/80 hover:bg-[#FFD700]/80 text-white hover:text-black p-4 rounded-full transition-colors duration-200 backdrop-blur-sm border border-white/20 hover:border-[#FFD700] shadow-xl"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </motion.button>
+                </button>
               )}
             </div>
           </div>
@@ -149,26 +132,20 @@ const ProjectCard = ({ project, index, onClick }) => {
             </div>
             
             {/* View Details Button */}
-            <motion.button
+            <button
               onClick={() => onClick(project)}
               className={styles.secondaryButton + " w-full flex items-center justify-center gap-2"}
-              whileHover={{ 
-                scale: 1.02
-              }}
-              whileTap={{ scale: 0.98 }}
             >
               <span>View Details</span>
-              <motion.svg 
+              <svg 
                 className="w-4 h-4" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </motion.svg>
-            </motion.button>
+              </svg>
+            </button>
           </div>
         </div>
       </div>

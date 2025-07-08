@@ -17,13 +17,10 @@ const ExperienceCard = ({ experience, index }) => {
 
   return (
     <motion.div
-      whileInView={{ 
-        scale: [0.95, 1.05, 1],
-        // Completely removed box shadow animation from the motion.div wrapper
-      }}
-      style={{ boxShadow: 'none' }} // Ensure no shadow on the wrapper
-      viewport={{ once: false, amount: 0.6 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
     >
       <VerticalTimelineElement
         className={index % 2 === 0 ? "vertical-timeline-element--left" : "vertical-timeline-element--right"}
@@ -33,13 +30,11 @@ const ExperienceCard = ({ experience, index }) => {
           color: "#fff",
           border: isHovered ? "2px solid #00CFFF" : "2px solid rgba(0, 207, 255, 0.3)",
           boxShadow: isHovered
-            ? "0 0 32px 8px #00CFFF, 0 0 64px 16px #00CFFF33, 0 0 0 4px #00CFFF44"
+            ? "0 0 15px 4px rgba(0, 207, 255, 0.3)"
             : "0 2px 8px 1px rgba(0, 0, 0, 0.3)",
-          filter: isHovered ? "drop-shadow(0 0 16px #00CFFF)" : "none",
-          transform: isHovered ? "scale(1.03)" : "scale(1)",
-          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          transition: "all 0.3s ease",
           borderRadius: "16px",
-          overflow: "hidden", // Contain everything within the card
+          overflow: "hidden",
         }}
         contentArrowStyle={{ 
           borderRight: index % 2 === 0 
@@ -54,132 +49,52 @@ const ExperienceCard = ({ experience, index }) => {
         iconStyle={{ 
           background: experience.iconBg,
           border: isHovered ? "4px solid #00CFFF" : "4px solid rgba(0, 207, 255, 0.5)",
-          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: isHovered ? "scale(1.25)" : "scale(1.5)",
-          boxShadow: isHovered 
-            ? "0 0 30px rgba(0, 207, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3)" 
-            : "0 0 15px rgba(0, 207, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(5px)",
-          marginTop: "20px" // Move the logo slightly below
+          transition: "all 0.3s ease",
+          boxShadow: "0 0 10px rgba(0, 207, 255, 0.3)",
+          marginTop: "20px"
         }}
         icon={
-          <motion.div 
-            className="flex justify-center items-center w-full h-full rounded-full bg-opacity-70"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
+          <div className="flex justify-center items-center w-full h-full rounded-full bg-opacity-70">
             <img
               src={experience.icon}
               alt={experience.company_name}
-              className="w-[75%] h-[75%] object-contain filter drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300"
+              className="w-[75%] h-[75%] object-contain"
             />
-          </motion.div>
+          </div>
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* No external date badges anymore - they'll be at the bottom */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.5 }}
-        >
-          <motion.h3 
-            className="text-white text-[24px] font-bold font-sans"
-            whileHover={{ scale: 1.05, color: "#00CFFF" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
+        <div>
+          <h3 className="text-white text-[24px] font-bold font-sans">
             {experience.title}
-          </motion.h3>
-          <motion.p 
-            className="text-[#b0b0b0] text-[16px] font-mono mb-4" 
-            style={{ margin: 0 }}
-            whileHover={{ scale: 1.02 }}
-          >
+          </h3>
+          <p className="text-[#b0b0b0] text-[16px] font-mono mb-4" style={{ margin: 0 }}>
             {experience.company_name}
-          </motion.p>
+          </p>
 
-          {/* Progress indicators for achievements */}
-          <div className="mb-4 space-y-2">
-            {experience.points.slice(0, 2).map((point, pointIndex) => (
-              <motion.div
-                key={pointIndex}
-                className="flex items-center gap-2"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: (index * 0.2) + (pointIndex * 0.1), duration: 0.8 }}
-              >
-                <div className="w-2 h-2 bg-[#00CFFF] rounded-full"></div>
-                <div className="flex-1 h-1 bg-tertiary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-[#00CFFF] to-[#00CFFF] rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: isHovered ? "100%" : "70%" }}
-                    transition={{ delay: (index * 0.3) + (pointIndex * 0.2), duration: 1 }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.ul 
-            className="mt-5 list-disc ml-5 space-y-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: index * 0.2, duration: 0.6 }}
-          >
+          <ul className="mt-5 list-disc ml-5 space-y-2">
             {experience.points.map((point, pointIndex) => (
-              <motion.li
+              <li
                 key={`experience-point-${pointIndex}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider hover:text-[#00CFFF] transition-colors duration-300"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ 
-                  delay: (index * 0.2) + (pointIndex * 0.1), 
-                  duration: 0.4,
-                  type: "spring",
-                  stiffness: 100 
-                }}
-                whileHover={{ x: 5, scale: 1.02 }}
+                className="text-white-100 text-[14px] pl-1 tracking-wider"
               >
                 {point}
-              </motion.li>
+              </li>
             ))}
-          </motion.ul>
+          </ul>
 
           {/* Date badge at the bottom of each card */}
-          <motion.div 
-            className="flex justify-end mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <motion.div 
-              className="inline-block px-4 py-2 bg-gradient-to-r from-[#FFD700] to-[#00CFFF] rounded-full shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              style={{
-                boxShadow: isHovered ? "0 0 20px rgba(0, 207, 255, 0.7)" : "0 0 15px rgba(0, 207, 255, 0.5)",
-              }}
-            >
+          <div className="flex justify-end mt-6">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#FFD700] to-[#00CFFF] rounded-full shadow-lg">
               <span className="text-black font-bold text-sm">
                 {experience.date || 'Date not available'}
               </span>
-            </motion.div>
-          </motion.div>
-
-          {/* Interactive timeline connector */}
-          {isHovered && (
-            <motion.div
-              className="absolute -left-3 top-1/2 w-6 h-6 bg-[#00CFFF] rounded-full opacity-50"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            />
-          )}
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </VerticalTimelineElement>
     </motion.div>
   );

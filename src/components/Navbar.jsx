@@ -262,22 +262,18 @@ const Navbar = () => {
             />{" "}
             {/* Ultra-enhanced full-screen mobile sidebar */}
             <div
-              className={`fixed top-0 right-0 h-screen w-80 bg-gradient-to-br from-primary via-[#1a1a2e] to-[#0f0f23] backdrop-blur-xl border-l border-white/10 shadow-2xl transform transition-all duration-300 ease-in-out z-50 ${
-                toggle ? "animate-slide-in-right" : "translate-x-full opacity-0"
-              } flex flex-col animate-background-float`}
+              className={`fixed top-0 right-0 h-screen w-80 bg-gradient-to-br from-primary via-[#1a1a2e] to-[#0f0f23] border-l border-white/10 shadow-xl transform transition-transform duration-200 ease-out z-50 ${
+                toggle ? "translate-x-0" : "translate-x-full"
+              } flex flex-col`}
               style={{
-                background: toggle
-                  ? "linear-gradient(135deg, #050816 0%, #1a1a2e 50%, #0f0f23 100%)"
-                  : undefined,
+                background: "linear-gradient(135deg, #050816 0%, #1a1a2e 50%, #0f0f23 100%)",
               }}
             >
               {" "}
               {/* Sidebar Header with enhanced effects */}
-              <div className="p-6 border-b border-white/10 bg-black/30 backdrop-blur-sm animate-pulse-glow">
+              <div className="p-6 border-b border-white/10 bg-black/30">
                 <div className="flex items-center justify-between">
-                  {" "}
-                  <div className="flex items-center gap-3 transform transition-all duration-500 hover:scale-105">
-                    {" "}
+                  <div className="flex items-center gap-3">
                     <div
                       className="relative w-8 h-8 cursor-pointer group"
                       onClick={(e) => {
@@ -293,8 +289,7 @@ const Navbar = () => {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md animate-pulse"></div>
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/30 flex items-center justify-center transition-opacity duration-300 rounded-full">
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/30 flex items-center justify-center transition-opacity duration-200 rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-4 w-4 text-white"
@@ -312,7 +307,7 @@ const Navbar = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                      <h3 className="text-white font-bold text-lg">
                         YOONUS
                       </h3>
                       <p className="text-secondary text-sm">Portfolio</p>
@@ -320,7 +315,7 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={() => setToggle(false)}
-                    className="text-white hover:text-[#915EFF] transition-all duration-300 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:rotate-90 transform"
+                    className="text-white hover:text-[#915EFF] transition-colors duration-200 p-2 hover:bg-white/10 rounded-lg"
                   >
                     <img src={close} alt="close" className="w-6 h-6" />
                   </button>
@@ -335,9 +330,7 @@ const Navbar = () => {
                     return (
                       <div
                         key={link.id}
-                        className={`sidebar-nav-item group relative cursor-pointer transform transition-all duration-300 hover:translate-x-3 hover:scale-105 ${
-                          toggle ? "animate-staggered-fade" : ""
-                        }`}
+                        className="group relative cursor-pointer"
                         onClick={() => {
                           if (link.id === "resume") {
                             handleResumeClick();
@@ -348,23 +341,22 @@ const Navbar = () => {
                           }
                           setToggle(false);
                         }}
-                        style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div
-                          className={`flex items-center gap-3 z-10 relative p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-white/30 backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-purple-500/20 overflow-hidden ${
+                          className={`flex items-center gap-3 z-10 relative p-4 rounded-xl transition-all duration-200 border border-transparent hover:border-white/30 group-hover:bg-white/10 ${
                             active === link.title
-                              ? "text-white bg-gradient-to-r from-[#915EFF]/40 to-[#7c45ff]/30 border-[#915EFF]/60 shadow-lg shadow-[#915EFF]/30 animate-pulse-glow"
-                              : "text-secondary hover:text-white hover:bg-white/10"
+                              ? "text-white bg-[#915EFF]/30 border-[#915EFF]/60"
+                              : "text-secondary hover:text-white"
                           }`}
                         >
                           <Icon className="w-5 h-5" />
-                          <span className="text-lg font-medium group-hover:text-shadow-lg">
+                          <span className="text-lg font-medium">
                             {link.title}
                           </span>
-                          {/* Enhanced hover indicator with animation */}
-                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10">
+                          {/* Hover indicator */}
+                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <svg
-                              className="w-5 h-5 text-[#915EFF] animate-float-enhanced"
+                              className="w-5 h-5 text-[#915EFF]"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -392,7 +384,7 @@ const Navbar = () => {
                       href="https://github.com/yoonus-k"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-secondary hover:text-white hover:scale-110 transition-all duration-200"
+                      className="text-secondary hover:text-white transition-colors duration-200"
                     >
                       <svg
                         className="w-6 h-6"
@@ -406,7 +398,7 @@ const Navbar = () => {
                       href="https://www.linkedin.com/in/yoonus-k/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-secondary hover:text-white hover:scale-110 transition-all duration-200"
+                      className="text-secondary hover:text-white transition-colors duration-200"
                     >
                       <svg
                         className="w-6 h-6"
@@ -420,9 +412,9 @@ const Navbar = () => {
                 </div>
               </div>
             </div>{" "}
-            {/* Enhanced backdrop overlay */}
+            {/* Backdrop overlay */}
             <div
-              className={`fixed inset-0 enhanced-backdrop transition-all duration-500 z-40 ${
+              className={`fixed inset-0 bg-black/50 transition-opacity duration-200 z-40 ${
                 toggle ? "opacity-100 visible" : "opacity-0 invisible"
               }`}
               onClick={() => setToggle(false)}
