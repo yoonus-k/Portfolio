@@ -77,7 +77,7 @@ const Hero = () => {
           
           {/* CTA buttons with improved styling and shimmer effect */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="/YOONUS_PMP_SW_AI_V2.pdf" download className="relative overflow-hidden bg-transparent border-2 border-[#915EFF] text-[#915EFF] hover:bg-[#915EFF] hover:text-[#18122B] font-mono px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all duration-300 group">
+            <a href="/src/assets/resume/YOONUS_PMP_SW_AI_V2.pdf" download className="relative overflow-hidden bg-transparent border-2 border-[#915EFF] text-[#915EFF] hover:bg-[#915EFF] hover:text-[#18122B] font-mono px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all duration-300 group">
               <span className="relative z-10">Download Resume</span>
               <div className="absolute inset-0 w-0 bg-[#915EFF] opacity-30 transition-all duration-300 group-hover:w-full"></div>
             </a>
