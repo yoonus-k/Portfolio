@@ -16,7 +16,7 @@ const ResumeNew = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const PDF_PATH = '/YOONUS_PMP_SW_AI.pdf';
+  const PDF_PATH = '/YOONUS_PMP_SW_AI_V2.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);

@@ -79,7 +79,7 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 // Import resume
-import resumePDF from "./resume/YOONUS_PMP_SW_AI.pdf";
+import resumePDF from "./resume/YOONUS_PMP_SW_AI_V2.pdf";
 
 export {
   // Company logos
