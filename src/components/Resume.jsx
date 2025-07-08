@@ -8,7 +8,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
 // Configure PDF.js worker with HTTPS to avoid mixed content issues
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.mjs`
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.mjs`
 
 const ResumeNew = () => {
   const [width, setWidth] = useState(1200);
@@ -16,7 +16,7 @@ const ResumeNew = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const PDF_PATH = '/src/assets/resume/YOONUS_PMP_SW_AI_V2.pdf';
+  const PDF_PATH = '/yoonus.me.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -29,6 +29,14 @@ const ResumeNew = () => {
     setError(true);
     setLoading(false);
   }
+
+  // Function to handle PDF download
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = PDF_PATH;
+    link.download = 'yoonus.me.pdf';
+    link.click();
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,8 +51,29 @@ const ResumeNew = () => {
     };
   }, []);
 
+  // Cleanup WebGL contexts on component mount to prevent conflicts
+  useEffect(() => {
+    // Hide other canvases while resume is visible
+    const canvases = document.querySelectorAll('canvas');
+    canvases.forEach(canvas => {
+      if (canvas && !canvas.closest('.resume-component')) {
+        canvas.style.display = 'none';
+      }
+    });
+
+    return () => {
+      // Restore canvases when component unmounts
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        if (canvas && !canvas.closest('.resume-component')) {
+          canvas.style.display = '';
+        }
+      });
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-primary pt-20 relative">
+    <div className="min-h-screen bg-primary pt-20 relative resume-component">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#915EFF]/5 to-transparent"></div>
       
@@ -84,15 +113,26 @@ const ResumeNew = () => {
               }
               error={
                 <div className="flex flex-col justify-center items-center h-[400px] w-full">
-                  <p className="text-white text-xl mb-4">Failed to load PDF file.</p>
-                  <a 
-                    href={PDF_PATH} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#00CFFF] underline hover:text-[#915EFF]"
-                  >
-                    Click here to view directly
-                  </a>
+                  <div className="text-center">
+                    <svg className="w-16 h-16 text-red-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.664-.833-2.464 0L4.35 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                    <p className="text-white text-xl mb-4">Failed to load PDF file.</p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <button 
+                        onClick={() => window.open(PDF_PATH, '_blank')}
+                        className="px-6 py-2 bg-[#00CFFF] text-black rounded-lg hover:bg-[#00CFFF]/80 transition-colors"
+                      >
+                        View PDF Directly
+                      </button>
+                      <button 
+                        onClick={handleDownload}
+                        className="px-6 py-2 bg-[#915EFF] text-white rounded-lg hover:bg-[#915EFF]/80 transition-colors"
+                      >
+                        Download PDF
+                      </button>
+                    </div>
+                  </div>
                 </div>
               }
             >
@@ -108,7 +148,7 @@ const ResumeNew = () => {
           </div>
 
           <motion.button
-            onClick={() => window.open(PDF_PATH, '_blank')}
+            onClick={handleDownload}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={`${styles.primaryButton} max-w-[250px] flex items-center gap-2`}

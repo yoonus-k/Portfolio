@@ -93,7 +93,7 @@ Portfolio/
 
 - **Edit your info:** Update `/src/constants/index.js` for navigation, links, and project data
 - **Change images/assets:** Place new images in `/public` or `/src/assets`
-- **Update resume:** Replace `/public/resume/YOONUS_PMP_SW_AI.pdf`
+- **Update resume:** Replace `/public/resume/yoonus.me.pdf`
 - **Modify styles:** Edit `/src/styles.js` and `/src/index.css`
 
 ---
