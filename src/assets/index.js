@@ -80,6 +80,7 @@ import close from "./close.svg";
 
 // Import resume
 import resumePDF from "./resume/yoonus.me.pdf";
+import resume_ai from "./resume/YOONUS_AI.pdf";
 
 export {
   // Company logos
@@ -154,4 +155,5 @@ export {
   menu,
   close,
   resumePDF,
+  resume_ai,
 };

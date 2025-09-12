@@ -244,7 +244,7 @@ const Navbar = () => {
               <span
                 className={`${showMobileView ? "hidden" : "hidden sm:block"}`}
               >
-                KIZHAKKETHIL
+                KIZHAKKETHIL , PMP®
               </span>
             </p>
           </Link>

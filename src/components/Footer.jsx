@@ -26,7 +26,7 @@ const Footer = () => {
       { name: 'About', href: '#about' },
       { name: 'Experience', href: '#experience' },
       { name: 'Projects', href: '#work' },
-      { name: 'Resume', href: 'yoonus.me.pdf', external: true }, // Resume before Contact
+      { name: 'Resume', href: 'YOONUS_AI.pdf', external: true }, // Resume before Contact
       { name: 'Contact', href: '#contact' },
     ],
     connect: [
@@ -81,7 +81,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-10 h-1 bg-[#00CFFF]"></div>
                   <h3 className="text-white text-2xl font-bold font-sans m-0">
-                    Yoonus Kizhakkethil
+                    Yoonus Kizhakkethil, PMP®
                     <span className="text-[#00CFFF]">.</span>
                   </h3>
                 </div>

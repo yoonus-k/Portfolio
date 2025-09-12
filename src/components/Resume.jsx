@@ -16,7 +16,7 @@ const ResumeNew = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const PDF_PATH = '/yoonus.me.pdf';
+  const PDF_PATH = '/YOONUS_AI.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -34,7 +34,7 @@ const ResumeNew = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = PDF_PATH;
-    link.download = 'yoonus.me.pdf';
+    link.download = 'YOONUS_AI.pdf';
     link.click();
   };
 
