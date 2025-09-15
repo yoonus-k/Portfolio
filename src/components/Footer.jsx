@@ -26,7 +26,7 @@ const Footer = () => {
       { name: 'About', href: '#about' },
       { name: 'Experience', href: '#experience' },
       { name: 'Projects', href: '#work' },
-      { name: 'Resume', href: 'YOONUS_AI.pdf', external: true }, // Resume before Contact
+      { name: 'Resume', href: 'YOONUS_AI_NEW.pdf', external: true }, // Resume before Contact
       { name: 'Contact', href: '#contact' },
     ],
     connect: [
