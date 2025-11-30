@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn, slideIn } from "../utils/motion";
-import BackToTop from "./BackToTop";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -16,7 +15,7 @@ const ResumeNew = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const PDF_PATH = '/YOONUS_AI_NEW.pdf';
+  const PDF_PATH = '/YOONUS_AI_2025.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -34,7 +33,7 @@ const ResumeNew = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = PDF_PATH;
-    link.download = 'YOONUS_AI_NEW.pdf';
+    link.download = 'YOONUS_AI_2025.pdf';
     link.click();
   };
 
@@ -184,7 +183,7 @@ const ResumeNew = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className={`${styles.gradientText} text-2xl font-bold group-hover:scale-110 transition-transform`}>3+</h3>
+            <h3 className={`${styles.gradientText} text-2xl font-bold group-hover:scale-110 transition-transform`}>5+</h3>
             <p className="text-white text-lg mt-2 font-semibold">Years Experience</p>
             <p className="text-secondary">Full-Stack & AI/ML</p>
           </div>
@@ -201,7 +200,6 @@ const ResumeNew = () => {
           </div>
         </motion.div>
       </div>
-      <BackToTop />
     </div>
   );
 };

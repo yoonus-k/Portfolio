@@ -84,11 +84,11 @@ const ProjectCard = ({ project, index, onClick }) => {
           <div className="p-6 space-y-4 relative">
             {/* Project title with status indicator */}
             <div className="flex items-start justify-between">
-              <h3 className="text-white text-xl font-bold leading-tight flex-1">
+              <h3 className="text-white text-xl font-bold leading-tight flex-1 font-['Space_Grotesk']">
                 {project.name}
               </h3>
               {project.status && (
-                <span className={`text-xs px-2 py-1 rounded-full ml-3 flex-shrink-0 ${
+                <span className={`text-xs px-2 py-1 rounded-full ml-3 flex-shrink-0 font-['Inter'] ${
                   project.status === 'completed' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
                   project.status === 'in-progress' ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' :
                   'bg-blue-500/20 text-blue-400 border border-blue-500/30'
@@ -98,7 +98,7 @@ const ProjectCard = ({ project, index, onClick }) => {
               )}
             </div>
             
-            <p className="text-secondary text-sm leading-relaxed line-clamp-3">
+            <p className="text-secondary text-sm leading-relaxed line-clamp-3 font-['Inter']">
               {project.description}
             </p>
 
@@ -119,13 +119,13 @@ const ProjectCard = ({ project, index, onClick }) => {
               {project.tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag.name}
-                  className="text-xs px-3 py-1.5 rounded-full bg-[#FFD700]/10 text-[#FFD700] border border-[#FFD700]/30 font-medium transition-all duration-200 hover:scale-105"
+                  className="text-xs px-3 py-1.5 rounded-full bg-[#FFD700]/10 text-[#FFD700] border border-[#FFD700]/30 font-['Inter'] font-medium transition-all duration-200 hover:scale-105"
                 >
                   {tag.name}
                 </span>
               ))}
               {project.tags.length > 3 && (
-                <span className="text-xs px-3 py-1.5 rounded-full bg-secondary/10 text-secondary border border-secondary/30 font-medium transition-all duration-200">
+                <span className="text-xs px-3 py-1.5 rounded-full bg-secondary/10 text-secondary border border-secondary/30 font-['Inter'] font-medium transition-all duration-200">
                   +{project.tags.length - 3} more
                 </span>
               )}
@@ -231,14 +231,17 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()} className="text-center">
-        <div className="inline-flex items-center px-4 py-2 bg-opacity-20 bg-[#FFD700] backdrop-blur-sm rounded-full mb-6 border border-[#FFD700] border-opacity-30 mx-auto">
-          <span className="text-[#FFD700] font-mono">Portfolio</span>
+        <div className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-[#FFD700]/10 via-[#FFD700]/20 to-[#FFD700]/10 backdrop-blur-sm rounded-full mb-6 border-2 border-[#FFD700] border-opacity-30 mx-auto shadow-[0_4px_20px_rgba(255,215,0,0.15)]">
+          <span className="text-[#FFD700] font-['Inter'] font-medium">Portfolio</span>
         </div>
         <h2 className={`${styles.sectionHeadText} mb-4`}>Projects</h2>
+        <div className="flex items-center justify-center mt-4 mb-6">
+          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent mx-2"></div>
+        </div>
       </motion.div>
       
       <div className="w-full flex justify-center">
-        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-base md:text-lg max-w-2xl text-center leading-relaxed mb-8">
+        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-base md:text-lg max-w-2xl text-center leading-relaxed mb-8 font-['Inter']">
           Following projects showcase my expertise in AI/ML engineering, full-stack development, 
           and IT solutions. Each project demonstrates real-world problem solving, from algorithmic 
           trading systems to enterprise software solutions, with links to repositories and live demos.

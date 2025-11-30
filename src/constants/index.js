@@ -62,6 +62,8 @@ import {
   sahl,
   ai,
   fiverr,
+  edunet,
+  powerbi,
 
 } from "../assets";
 
@@ -147,58 +149,68 @@ export const technologies = [
   { name: "AWS", icon: aws },
 ];
 
-export const experiences = [  {
-    title: "IT Manager",
-    company_name: "Starbucks (Arabian Gates)",
-    icon: sbx, // Will replace with Starbucks icon later
-    iconBg: "#F0F0F0", // Light gray with better contrast
-    date: "Jan 2024 - Present",
+export const experiences = [
+  {
+    title: "IT Project Manager",
+    company_name: "Digital Awareness Corporation",
+    icon: edunet,
+    iconBg: "#E8F4FD",
+    date: "Oct 2025 - Present",
     points: [
-      "Driving digital transformation and AI integration for 20+ branches, managing a $100K project portfolio and a 50+ person team.",
-      "Engineered an AI-powered inventory forecasting model that automated supply chain workflows, boosting operational efficiency by 30% and saving 15+ manual hours per branch weekly.",
-      "Deployed a data-driven product categorization model that streamlined POS operations, cutting average customer checkout time by 20%.",
-      "Automated financial and data analytics by integrating predictive analytics with ERP systems, improving reporting accuracy by 25%.",
-      "Reduced external IT dependency by 80% by developing and leading internal training programs on AI-enabled IT solutions.",
+      "Built a fully automated AI agent for government tender analysis, improving processing speed and efficiency by 300%.",
+      "Increased company sales by 80% through active customer engagement, improved communication, and client satisfaction efforts.",
+      "Managed full project lifecycles, ensuring alignment with business goals and consistent on-time delivery.",
+      "Drove the adoption of AI-driven automation tools to reduce manual work and scale operations across departments.",
     ],
   },
-  {    title: "AI/ML Engineer (Project Lead)",
+  {
+    title: "IT Manager",
+    company_name: "Starbucks (Arabian Gates)",
+    icon: sbx,
+    iconBg: "#F0F0F0",
+    date: "Jan 2024 - Oct 2025",
+    points: [
+      "Engineered inventory forecasting with AI, boosting efficiency 30% and saving 15+ hours/branch/week.",
+      "Deployed a data-driven product categorization model that streamlined POS operations, cutting average customer checkout time by 20%.",
+      "Automated financial and data analytics by integrating predictive analytics with ERP systems, improving reporting accuracy by 25%.",
+      "Reduced external IT dependency by 80% by developing and leading internal training programs on AI-enabled tools.",
+    ],
+  },
+  {
+    title: "AI/ML Engineer (Project Lead)",
     company_name: "Remote (Single-Client Engagement)",
     icon: ai,
-    iconBg: "#E6F7FF", // Light blue - better for AI/ML role
-    date: "Feb 2025 - Present",
+    iconBg: "#E6F7FF",
+    date: "Feb 2025 - Aug 2025",
     points: [
-      "Led end-to-end dev of a proprietary AI stock prediction system, managing a cross-functional team of 3 from the start to end.",
-      "Architected a full-stack trading system integrating NLP for sentiment analysis and a PPO reinforcement learning agent, resulting in an 80% increase in risk-adjusted returns during backtesting.",
+      "Architected an NLP and PPO-based reinforcement learning trading system that boosted risk-adjusted returns by 80% in backtesting.",
       "Engineered automated data pipelines to process daily market data, reducing feature engineering time by 40%.",
       "Deployed a scalable multi-interface application using Docker and CI/CD, establishing model versioning and API endpoints.",
       "Implemented a risk management framework (Sharpe Ratio, Max Drawdown) critical for model selection, saving 25% in potential losses.",
-      "Established model versioning workfl ows with API endpoints for reproducibility and scalable deployment.",
-      "Authored comprehensive documentation that slashed client onboarding time by 50%, ensuring seamless knowledge transfer.",
     ],
   },
-  {    title: "Full Stack Engineering Intern",
+  {
+    title: "Full Stack Engineering Intern",
     company_name: "Sahl Solutions",
     icon: sahl,
-    iconBg: "#F0F7EF", // Light green - for growth and learning
+    iconBg: "#F0F7EF",
     date: "Jun 2024 - Aug 2024",
     points: [
       "Engineered and integrated RESTful APIs using Django and React, enabling 3+ scalable features for the application and ERP ecosystem.",
       "Designed optimized database schemas to support complex data, ensuring readiness for analytics and machine learning workloads.",
       "Enhanced performance by optimizing database queries and React component structures, reducing average page load time by 15%.",
-      "Contributed to an Agile team through 4 major sprints, facilitating cross-functional collaboration between local and offshore developers.",
     ],
   },
-  {    title: "Web Developer",
-    company_name: "Freelance",
-    icon: fiverr,
-    iconBg: "#F5F0FF", // Light purple - for creativity
-    date: "Jan 2022 - Aug 2024",
+  {
+    title: "Assistant Manager (Data & Reporting)",
+    company_name: "Al-Atayeb",
+    icon: powerbi,
+    iconBg: "#E8F4FD",
+    date: "Jan 2018 - Jan 2019",
     points: [
-      "Built custom full-stack applications using React.js, Django, Next.js, and Laravel for retail and real estate clients.",
-      "Designed responsive, intuitive websites with mobile-first layouts, improving user engagement and navigation.",
-      "Developed e-commerce platforms using Shopify and Laravel, enabling product management and online payments.",
-      "Created user-centric UI/UX wireframes using Figma and implemented consistent frontend interfaces.",
-      "Integrated third-party APIs including payment gateways and email systems to expand site functionality.",
+      "Supported store operations and staff coordination, contributing to effective scheduling and payroll accuracy.",
+      "Organized financial datasets and applied Excel-based analytics to improve reporting efficiency and accuracy.",
+      "Streamlined attendance tracking systems, reducing payroll errors and ensuring data consistency.",
     ],
   },
 ];

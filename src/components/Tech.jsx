@@ -235,12 +235,12 @@ function Tech() {
       {/* Category selector tabs with animated transitions */}
       {/* Section header */}
       <div className="text-center mb-10">
-        <div className="inline-flex items-center px-4 py-2 bg-opacity-20 bg-[#00CFFF] backdrop-blur-sm rounded-full mb-6 border border-[#00CFFF] border-opacity-30">
-          <span className="text-[#00CFFF] text-sm font-medium font-mono">My Tech Stack</span>
+        <div className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-[#00CFFF]/10 via-[#00CFFF]/20 to-[#00CFFF]/10 backdrop-blur-sm rounded-full mb-6 border-2 border-[#00CFFF] border-opacity-30 shadow-[0_4px_20px_rgba(0,207,255,0.15)]">
+          <span className="text-[#00CFFF] text-sm font-medium font-['Inter']">My Tech Stack</span>
         </div>
-        <h2 className="font-sans font-extrabold text-4xl md:text-5xl text-white leading-tight tracking-tight mb-6">Technologies</h2>
+        <h2 className="font-['Space_Grotesk'] font-extrabold text-4xl md:text-5xl text-white leading-tight tracking-tight mb-6">Technologies</h2>
         <div className="flex items-center justify-center mt-4 mb-6">
-          <div className="w-12 h-1 bg-[#00CFFF] mx-2"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#00CFFF] to-transparent mx-2"></div>
         </div>
       </div>
 
@@ -249,10 +249,10 @@ function Tech() {
         {categoryKeys.map((category) => (
           <motion.button
             key={category}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border-2 ${
+            className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border-2 font-['Inter'] ${
               activeCategory === category 
-                ? "border-[#00CFFF] bg-[#00CFFF]/10 text-[#00CFFF] shadow-lg" 
-                : "border-white/20 bg-transparent text-white/70 hover:border-white/40 hover:text-white"
+                ? "border-[#00CFFF] bg-gradient-to-r from-[#00CFFF]/10 to-[#915EFF]/10 text-[#00CFFF] shadow-[0_4px_20px_rgba(0,207,255,0.25)]" 
+                : "border-white/20 bg-transparent text-white/70 hover:border-white/40 hover:text-white hover:shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
             }`}
             onClick={() => handleTabClick(category)}
             whileHover={{ scale: 1.05 }}
@@ -262,7 +262,7 @@ function Tech() {
               transition: { duration: 0.5, repeat: 0 }
             } : {}}
           >
-            <span className="font-mono">{category}</span>
+            <span>{category}</span>
           </motion.button>
         ))}
       </div>

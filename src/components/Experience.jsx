@@ -68,10 +68,10 @@ const ExperienceCard = ({ experience, index }) => {
         {/* No external date badges anymore - they'll be at the bottom */}
 
         <div>
-          <h3 className="text-white text-[24px] font-bold font-sans">
+          <h3 className="text-white text-[24px] font-bold font-['Space_Grotesk']">
             {experience.title}
           </h3>
-          <p className="text-[#b0b0b0] text-[16px] font-mono mb-4" style={{ margin: 0 }}>
+          <p className="text-[#b0b0b0] text-[16px] font-['Inter'] mb-4" style={{ margin: 0 }}>
             {experience.company_name}
           </p>
 
@@ -79,7 +79,7 @@ const ExperienceCard = ({ experience, index }) => {
             {experience.points.map((point, pointIndex) => (
               <li
                 key={`experience-point-${pointIndex}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-white-100 text-[14px] pl-1 tracking-wider font-['Inter']"
               >
                 {point}
               </li>
@@ -173,14 +173,14 @@ const Experience = () => {
   return (
     <>
       <motion.div variants={textVariant()} className="text-center">
-        <div className="inline-flex items-center px-4 py-2 bg-opacity-20 bg-[#00CFFF] backdrop-blur-sm rounded-full mb-6 border border-[#00CFFF] border-opacity-30 mx-auto">
-          <span className="text-[#00CFFF] text-sm font-medium font-mono">My Journey</span>
+        <div className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-[#00CFFF]/10 via-[#00CFFF]/20 to-[#00CFFF]/10 backdrop-blur-sm rounded-full mb-6 border-2 border-[#00CFFF] border-opacity-30 mx-auto shadow-[0_4px_20px_rgba(0,207,255,0.15)]">
+          <span className="text-[#00CFFF] text-sm font-medium font-['Inter']">My Journey</span>
         </div>
         <h2 className={`${styles.sectionHeadText}`}>Work Experience</h2>
         <div className="flex items-center justify-center mt-4 mb-6">
-          <div className="w-12 h-1 bg-[#00CFFF] mx-2"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#00CFFF] to-transparent mx-2"></div>
         </div>
-        <p className="text-[#b0b0b0] text-base md:text-lg font-mono max-w-2xl mx-auto text-center leading-relaxed mb-12">
+        <p className="text-[#b0b0b0] text-base md:text-lg font-['Inter'] max-w-2xl mx-auto text-center leading-relaxed mb-12">
           My professional journey showcases a blend of technical expertise and leadership roles across different industries.
         </p>
       </motion.div>

@@ -13,6 +13,8 @@ import Experience from "./Experience";
 import Works from "./Works";
 import Contact from "./Contact";
 import Resume from "./Resume";
+import LoadingScreen from "./LoadingScreen";
+import ScrollProgress from "./ScrollProgress";
 
 export {
   Hero,
@@ -23,6 +25,8 @@ export {
   Works,
   Contact,
   Resume,
+  LoadingScreen,
+  ScrollProgress,
   EarthCanvas,
   BallCanvas,
   ComputersCanvas,

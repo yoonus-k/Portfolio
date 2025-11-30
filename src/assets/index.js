@@ -3,6 +3,8 @@ import sbx from "./company/sbx.png";
 import sahl from "./company/sahl.png";
 import ai from "./company/ai.png";
 import fiverr from "./company/fiverr.png";
+import edunet from "./company/edunet.png";
+import powerbi from "./tech/powerbi.png"; // For data analytics roles
 
 // Import tech stack images
 import python from "./tech/python.png";
@@ -80,7 +82,7 @@ import close from "./close.svg";
 
 // Import resume
 import resumePDF from "./resume/yoonus.me.pdf";
-import resume_ai from "./resume/YOONUS_AI_NEW.pdf";
+import resume_ai from "./resume/YOONUS_AI_2025.pdf";
 
 export {
   // Company logos
@@ -88,6 +90,8 @@ export {
   sahl,
   ai,
   fiverr,
+  edunet,
+  powerbi,
   
   // Tech stack
   python,

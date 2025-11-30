@@ -9,14 +9,14 @@ import { slideIn } from "../utils/motion";
 import "../index.css";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (    <label className="flex flex-col">
-    <span className="text-[#00CFFF] font-medium mb-3 font-mono">{label}</span>
+    <span className="text-[#00CFFF] font-medium mb-3 font-['Inter']">{label}</span>
     <input
       type={type}
       name={name}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="bg-transparent py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-[#00CFFF] border-opacity-30 font-medium focus:border-opacity-70 transition-all duration-300"
+      className="bg-gradient-to-br from-[#0A0A0F]/50 to-[#18122B]/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-[#00CFFF] border-opacity-20 font-['Inter'] font-medium focus:border-opacity-60 focus:shadow-[0_4px_20px_rgba(0,207,255,0.2)] transition-all duration-300"
     />
   </label>
 );
@@ -139,15 +139,15 @@ const Contact = () => {
       {/* Contact Form Section */}
       <motion.div 
         variants={slideIn("up", "tween", 0.2, 1)} 
-        className="bg-transparent backdrop-blur-sm border-2 border-opacity-10 border-white p-8 rounded-2xl max-w-4xl mx-auto w-full"
+        className="bg-gradient-to-br from-[#0A0A0F]/80 via-[#18122B]/70 to-[#0A0A0F]/80 backdrop-blur-sm border-2 border-opacity-20 border-[#00CFFF] p-10 rounded-2xl max-w-4xl mx-auto w-full shadow-[0_8px_32px_rgba(0,207,255,0.15),0_16px_64px_rgba(0,0,0,0.4)]"
       >
         <div className="text-center mb-8">
           <div className={`${styles.badgeStyle} inline-flex mx-auto mb-4`}>
-            <span className="text-[#00CFFF] text-sm font-medium font-mono">Get in touch</span>
+            <span className="text-[#00CFFF] text-sm font-medium font-['Inter']">Get in touch</span>
           </div>
           <h3 className={styles.sectionHeadText}>Contact Me</h3>
           <div className="flex items-center justify-center mt-4 mb-3">
-            <div className="w-12 h-1 bg-[#00CFFF] mx-2"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#00CFFF] to-transparent mx-2"></div>
           </div>
         </div>
         
@@ -217,14 +217,14 @@ const Contact = () => {
           {emailError && <span className="text-red-500">{emailError}</span>}
 
           <label className="flex flex-col">
-            <span className="text-[#00CFFF] font-medium mb-3 font-mono">Your Message</span>
+            <span className="text-[#00CFFF] font-medium mb-3 font-['Inter']">Your Message</span>
             <textarea
               rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What would you like to discuss? Projects, opportunities, collaborations..."
-              className="bg-transparent py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-[#00CFFF] border-opacity-30 font-medium focus:border-opacity-70 transition-all duration-300"
+              className="bg-gradient-to-br from-[#0A0A0F]/50 to-[#18122B]/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-[#00CFFF] border-opacity-20 font-['Inter'] font-medium focus:border-opacity-60 focus:shadow-[0_4px_20px_rgba(0,207,255,0.2)] transition-all duration-300"
             />
           </label>
           {messageError && <span className="text-red-500">{messageError}</span>}

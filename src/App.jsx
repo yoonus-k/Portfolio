@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { About, Contact, Experience, Hero, Navbar, StarsCanvas, Tech, Works, Resume } from './components';
-import BackToTop from './components/BackToTop';
+import { About, Contact, Experience, Hero, Navbar, StarsCanvas, Tech, Works, Resume, LoadingScreen, ScrollProgress } from './components';
 import Footer from './components/Footer';
 import { setupWebGLErrorMonitoring, checkWebGLSupport } from './utils/errorMonitor';
 
@@ -50,7 +49,6 @@ const HomePage = () => {
         <Tech />
         <Contact />
         <Footer />
-        <BackToTop />
       </div>
     </div>
   );
@@ -64,7 +62,10 @@ const App = () => {
         v7_startTransition: true,
         v7_relativeSplatPath: true,
       }}
-    >      <div className="relative z-0 bg-primary">
+    >
+      <LoadingScreen />
+      <ScrollProgress />
+      <div className="relative z-0 bg-primary">
         <Navbar  />
         <Routes>
           <Route path="/" element={<HomePage />} />
