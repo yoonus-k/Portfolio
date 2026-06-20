@@ -15,7 +15,7 @@ const ResumeNew = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const PDF_PATH = '/YOONUS_AI_2025.pdf';
+  const PDF_PATH = '/YOONUS_AI_2026.pdf';
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -33,7 +33,7 @@ const ResumeNew = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = PDF_PATH;
-    link.download = 'YOONUS_AI_2025.pdf';
+    link.download = 'YOONUS_AI_2026.pdf';
     link.click();
   };
 
@@ -194,9 +194,9 @@ const ResumeNew = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className={`${styles.gradientText} text-2xl font-bold group-hover:scale-110 transition-transform`}>$1M+</h3>
-            <p className="text-white text-lg mt-2 font-semibold">Revenue Generated</p>
-            <p className="text-secondary">E-commerce Projects</p>
+            <h3 className={`${styles.gradientText} text-2xl font-bold group-hover:scale-110 transition-transform`}>6,000+</h3>
+            <p className="text-white text-lg mt-2 font-semibold">Employees Served</p>
+            <p className="text-secondary">Enterprise AI at Alinma Bank</p>
           </div>
         </motion.div>
       </div>

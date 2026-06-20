@@ -26,7 +26,7 @@ const Footer = () => {
       { name: 'About', href: '#about' },
       { name: 'Experience', href: '#experience' },
       { name: 'Projects', href: '#work' },
-      { name: 'Resume', href: 'YOONUS_AI_2025.pdf', external: true }, // Resume before Contact
+      { name: 'Resume', href: 'YOONUS_AI_2026.pdf', external: true }, // Resume before Contact
       { name: 'Contact', href: '#contact' },
     ],
     connect: [
@@ -86,7 +86,7 @@ const Footer = () => {
                   </h3>
                 </div>
                 <p className="text-[#b0b0b0] text-base leading-relaxed mb-6 font-mono">
-                  Crafting digital <span className="text-[#00CFFF]">experiences</span> with code, creativity & a bit of caffeine (of course!). AI/ML Engineer & Full-Stack Developer passionate about innovation.
+                  Building production <span className="text-[#00CFFF]">AI & Generative AI</span> for secure, regulated banking. AI Full Stack Engineer shipping LLM, RAG & agentic systems from concept to compliant deployment.
                 </p>
                 <p className="text-secondary/80 text-sm">
                   Thanks for stopping by!
@@ -138,7 +138,7 @@ const Footer = () => {
                   <h4 className="text-white text-lg font-semibold mb-6">Connect</h4>
                   <div className="space-y-4">
                     <div className="text-secondary text-sm mb-4">
-                      IT Manager at Starbucks | AI/ML Engineer
+                      AI Full Stack Engineer at Alinma Bank | PMP®
                     </div>
                     
                     {/* Social Links */}
@@ -179,7 +179,7 @@ const Footer = () => {
                       <svg className="w-4 h-4 text-[#915EFF]" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                       </svg>
-                      <span>Jeddah, Saudi Arabia</span>
+                      <span>Riyadh, Saudi Arabia</span>
                     </div>
                   </div>
                 </motion.div>

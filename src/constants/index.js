@@ -58,6 +58,7 @@ import {
   portfolio3,
 
   // Company logos
+  alinma,
   sbx,
   sahl,
   ai,
@@ -104,12 +105,12 @@ export const navLinks = [
 ];
 
 export const services = [
-  { title: "AI/ML Engineering", icon: ai },
-  { title: "Software Engineering", icon:se },
-  { title: "Project Management", icon: pmp },
-  { title: "Algorithmic Trading", icon: python },
-  { title: "Full-Stack Development", icon: reactjs },
- 
+  { title: "Generative AI & LLMs", icon: ai },
+  { title: "Agentic AI & RAG Systems", icon: se },
+  { title: "MLOps & Cloud Deployment", icon: aws },
+  { title: "Project Management (PMP®)", icon: pmp },
+  { title: "Full-Stack Engineering", icon: reactjs },
+
 ];
 
 export const technologies = [
@@ -151,11 +152,24 @@ export const technologies = [
 
 export const experiences = [
   {
+    title: "AI Full Stack Engineer",
+    company_name: "Alinma Bank",
+    icon: alinma,
+    iconBg: "#FFFFFF",
+    date: "Dec 2025 - Present",
+    points: [
+      "Built and rolled out an internal agentic coding assistant adopted by 6,000+ employees across departments, cutting routine engineering effort bank-wide.",
+      "Deployed AI applications and self-hosted LLMs (e.g., Kimi K2.6) to Red Hat OpenShift on bank-managed GPU infrastructure, ensuring data residency and regulatory compliance.",
+      "Delivered production AI products end-to-end — an internal vibe-coding platform, a Figma-to-code generator, an AI email assistant, and a novel agentic RAG system for grounded, enterprise-grade knowledge retrieval.",
+      "Engineered AI agents inside the bank's super-app that execute natural-language queries and actions on customer accounts within a secure, regulated environment.",
+    ],
+  },
+  {
     title: "IT Project Manager",
     company_name: "Digital Awareness Corporation",
     icon: edunet,
     iconBg: "#E8F4FD",
-    date: "Oct 2025 - Present",
+    date: "Oct 2025 - Dec 2025",
     points: [
       "Built a fully automated AI agent for government tender analysis, improving processing speed and efficiency by 300%.",
       "Increased company sales by 80% through active customer engagement, improved communication, and client satisfaction efforts.",

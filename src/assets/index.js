@@ -1,4 +1,5 @@
 // Import company logos
+import alinma from "./company/alinma.png";
 import sbx from "./company/sbx.png";
 import sahl from "./company/sahl.png";
 import ai from "./company/ai.png";
@@ -82,10 +83,11 @@ import close from "./close.svg";
 
 // Import resume
 import resumePDF from "./resume/yoonus.me.pdf";
-import resume_ai from "./resume/YOONUS_AI_2025.pdf";
+import resume_ai from "./resume/YOONUS_AI_2026.pdf";
 
 export {
   // Company logos
+  alinma,
   sbx,
   sahl,
   ai,

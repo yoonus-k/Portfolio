@@ -45,8 +45,8 @@ const About = () => {
       
       <div className="w-full flex justify-center mb-8">
         <p className="text-[#b0b0b0] text-base md:text-lg font-['Inter'] max-w-2xl text-center leading-relaxed">
-          I offer a wide range of technical services to help businesses succeed in the digital world, 
-          leveraging cutting-edge technologies for optimal solutions.
+          I design and ship production AI for secure, regulated enterprises — from Generative AI and
+          agentic RAG systems to MLOps and full-stack delivery, built to compliance and scale.
         </p>
       </div>
 

@@ -161,11 +161,11 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[#915EFF]">📍</span>
-              <span>Jeddah, Saudi Arabia</span>
+              <span>Riyadh, Saudi Arabia</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[#915EFF]">💼</span>
-              <span>IT Manager at Starbucks | AI/ML Engineer</span>
+              <span>AI Full Stack Engineer at Alinma Bank | PMP®</span>
             </div>
           </div>
           
