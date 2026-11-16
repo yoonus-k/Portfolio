@@ -45,8 +45,8 @@ const About = () => {
       
       <div className="w-full flex justify-center mb-8">
         <p className="text-[#b0b0b0] text-base md:text-lg font-['Inter'] max-w-2xl text-center leading-relaxed">
-          I design and ship production AI for secure, regulated enterprises — from Generative AI and
-          agentic RAG systems to MLOps and full-stack delivery, built to compliance and scale.
+          A GenAI demo takes a week. Getting it approved, secured and used in a bank takes months.
+          That gap is where I work: AI agents, end-to-end GenAI apps and the LLMs underneath them.
         </p>
       </div>
 

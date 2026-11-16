@@ -86,7 +86,7 @@ const Footer = () => {
                   </h3>
                 </div>
                 <p className="text-[#b0b0b0] text-base leading-relaxed mb-6 font-mono">
-                  Building production <span className="text-[#00CFFF]">AI & Generative AI</span> for secure, regulated banking. AI Full Stack Engineer shipping LLM, RAG & agentic systems from concept to compliant deployment.
+                  Building <span className="text-[#00CFFF]">agentic AI</span> for banking at Alinma Bank. I deploy LLMs and ship AI agents and GenAI apps that hold up in a regulated environment.
                 </p>
                 <p className="text-secondary/80 text-sm">
                   Thanks for stopping by!
@@ -138,7 +138,7 @@ const Footer = () => {
                   <h4 className="text-white text-lg font-semibold mb-6">Connect</h4>
                   <div className="space-y-4">
                     <div className="text-secondary text-sm mb-4">
-                      AI Full Stack Engineer at Alinma Bank | PMP®
+                      Building agentic AI for banking at Alinma Bank | PMP®
                     </div>
                     
                     {/* Social Links */}
