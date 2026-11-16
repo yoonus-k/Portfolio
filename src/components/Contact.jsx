@@ -165,7 +165,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[#915EFF]">💼</span>
-              <span>AI Full Stack Engineer at Alinma Bank | PMP®</span>
+              <span>Building agentic AI for banking at Alinma Bank | PMP®</span>
             </div>
           </div>
           

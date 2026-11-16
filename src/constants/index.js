@@ -30,10 +30,6 @@ import {
   // Projects
   gymbro,
   threejs,
-  reg,
-  real1,
-  real2,
-  real3,
   inventory,
   inventory2,
   inventory3,
@@ -41,18 +37,6 @@ import {
   hamlati2,
   hamlati3,
   hamlati4,
-  chess,
-  chess2,
-  chess3,
-  ai1,
-  ai2,
-  ai3,
-  ai4,
-  ai5,
-  ai6,
-  ai7,
-  ai8,
-  ai9,
   portfolio,
   portfolio2,
   portfolio3,
@@ -60,11 +44,9 @@ import {
   // Company logos
   alinma,
   sbx,
-  sahl,
   ai,
   fiverr,
   edunet,
-  powerbi,
 
 } from "../assets";
 
@@ -105,12 +87,10 @@ export const navLinks = [
 ];
 
 export const services = [
-  { title: "Generative AI & LLMs", icon: ai },
-  { title: "Agentic AI & RAG Systems", icon: se },
-  { title: "MLOps & Cloud Deployment", icon: aws },
-  { title: "Project Management (PMP®)", icon: pmp },
-  { title: "Full-Stack Engineering", icon: reactjs },
-
+  { title: "Agentic AI & AI Agents", icon: se },
+  { title: "Generative AI Apps, End to End", icon: ai },
+  { title: "LLM Deployment & LLMOps", icon: aws },
+  { title: "Delivery & Governance (PMP®)", icon: pmp },
 ];
 
 export const technologies = [
@@ -158,10 +138,12 @@ export const experiences = [
     iconBg: "#FFFFFF",
     date: "Dec 2025 - Present",
     points: [
-      "Built and rolled out an internal agentic coding assistant adopted by 6,000+ employees across departments, cutting routine engineering effort bank-wide.",
-      "Deployed AI applications and self-hosted LLMs (e.g., Kimi K2.6) to Red Hat OpenShift on bank-managed GPU infrastructure, ensuring data residency and regulatory compliance.",
-      "Delivered production AI products end-to-end — an internal vibe-coding platform, a Figma-to-code generator, an AI email assistant, and a novel agentic RAG system for grounded, enterprise-grade knowledge retrieval.",
-      "Engineered AI agents inside the bank's super-app that execute natural-language queries and actions on customer accounts within a secure, regulated environment.",
+      "Own GenAI and agentic AI at the bank from idea to production: deploy and run the internal models, then build the apps and agents people use every day on top of them.",
+      "Deploy, serve and manage the bank's internal LLMs, so GenAI runs where the bank's data is allowed to live.",
+      "Design and build AI agents that complete multi-step tasks across internal tools and data, with guardrails, audit trails and human oversight suited to a bank.",
+      "Build end-to-end GenAI applications, from data pipelines, RAG and APIs to the interface, and take them through security and compliance review into daily use.",
+      "Shipped a portfolio of GenAI products. Flagships: a coding assistant inside the developers' IDE used by hundreds of developers, and an Outlook email assistant (summarize, translate in Arabic, English and French, draft replies) used by thousands of employees. Together they save many thousands of working hours a year.",
+      "Assess new models and tools and advise the bank on what to adopt and what to skip.",
     ],
   },
   {
@@ -171,10 +153,22 @@ export const experiences = [
     iconBg: "#E8F4FD",
     date: "Oct 2025 - Dec 2025",
     points: [
-      "Built a fully automated AI agent for government tender analysis, improving processing speed and efficiency by 300%.",
-      "Increased company sales by 80% through active customer engagement, improved communication, and client satisfaction efforts.",
-      "Managed full project lifecycles, ensuring alignment with business goals and consistent on-time delivery.",
-      "Drove the adoption of AI-driven automation tools to reduce manual work and scale operations across departments.",
+      "Built a fully automated AI agent for government tender analysis that made processing 300% faster.",
+      "Brought AI automation tools into daily work across departments, cutting manual work.",
+      "Led IT and AI automation projects from scoping to delivery, on time and aligned with business goals.",
+    ],
+  },
+  {
+    title: "AI Engineer (Freelance)",
+    company_name: "Private client (under NDA)",
+    icon: ai,
+    iconBg: "#E6F7FF",
+    date: "Feb 2025 - Sep 2025",
+    points: [
+      "Built an AI forecasting system for a private investment client, combining price pattern recognition with news and social sentiment.",
+      "Led delivery end to end with a $50K budget and a remote team of 3, hitting every milestone on schedule and 15% under budget.",
+      "Set up deployment, model versioning and API endpoints so the system can be updated and maintained.",
+      "Designed a risk evaluation framework (Sharpe ratio, drawdown) that improved backtested risk-adjusted returns by 80%.",
     ],
   },
   {
@@ -184,89 +178,15 @@ export const experiences = [
     iconBg: "#F0F0F0",
     date: "Jan 2024 - Oct 2025",
     points: [
-      "Engineered inventory forecasting with AI, boosting efficiency 30% and saving 15+ hours/branch/week.",
-      "Deployed a data-driven product categorization model that streamlined POS operations, cutting average customer checkout time by 20%.",
-      "Automated financial and data analytics by integrating predictive analytics with ERP systems, improving reporting accuracy by 25%.",
-      "Reduced external IT dependency by 80% by developing and leading internal training programs on AI-enabled tools.",
-    ],
-  },
-  {
-    title: "AI/ML Engineer (Project Lead)",
-    company_name: "Remote (Single-Client Engagement)",
-    icon: ai,
-    iconBg: "#E6F7FF",
-    date: "Feb 2025 - Aug 2025",
-    points: [
-      "Architected an NLP and PPO-based reinforcement learning trading system that boosted risk-adjusted returns by 80% in backtesting.",
-      "Engineered automated data pipelines to process daily market data, reducing feature engineering time by 40%.",
-      "Deployed a scalable multi-interface application using Docker and CI/CD, establishing model versioning and API endpoints.",
-      "Implemented a risk management framework (Sharpe Ratio, Max Drawdown) critical for model selection, saving 25% in potential losses.",
-    ],
-  },
-  {
-    title: "Full Stack Engineering Intern",
-    company_name: "Sahl Solutions",
-    icon: sahl,
-    iconBg: "#F0F7EF",
-    date: "Jun 2024 - Aug 2024",
-    points: [
-      "Engineered and integrated RESTful APIs using Django and React, enabling 3+ scalable features for the application and ERP ecosystem.",
-      "Designed optimized database schemas to support complex data, ensuring readiness for analytics and machine learning workloads.",
-      "Enhanced performance by optimizing database queries and React component structures, reducing average page load time by 15%.",
-    ],
-  },
-  {
-    title: "Assistant Manager (Data & Reporting)",
-    company_name: "Al-Atayeb",
-    icon: powerbi,
-    iconBg: "#E8F4FD",
-    date: "Jan 2018 - Jan 2019",
-    points: [
-      "Supported store operations and staff coordination, contributing to effective scheduling and payroll accuracy.",
-      "Organized financial datasets and applied Excel-based analytics to improve reporting efficiency and accuracy.",
-      "Streamlined attendance tracking systems, reducing payroll errors and ensuring data consistency.",
+      "Ran IT operations for 20+ branches, with a team of 50+ and a $100K project portfolio. Promoted from IT Supervisor after six months.",
+      "Automated inventory and POS processes, raising efficiency by 30% and saving 15 manual hours per branch every week.",
+      "Restructured the checkout workflow, cutting average transaction time by 20%.",
+      "Built internal IT training that let staff solve 80% of issues themselves and cut external IT costs by 25%.",
     ],
   },
 ];
 
 export const projects = [
-  {
-    name: "AI-Powered Stock Prediction System",
-    description:
-      "Advanced trading system combining pattern recognition, sentiment analysis, and reinforcement learning for stock market predictions with multi-interface access points.",
-    category: "AI/ML",
-    status: "in-progress",
-    tags: [
-      { name: "Python", color: "blue-text-gradient" },
-      { name: "Machine Learning", color: "green-text-gradient" },
-      { name: "Reinforcement Learning", color: "pink-text-gradient" },
-      { name: "sqlite3", color: "orange-text-gradient" },
-      { name: "MLOps: mlflow, tensorboard", color: "orange-text-gradient" },
-      { name: "Data science/ML: scikit-learn, pandas, numpy, matplotlib, seaborn", color: "orange-text-gradient" },
-      { name: "Reinforcement learning: stable-baselines3, PPO, gymnasium", color: "orange-text-gradient" },
-      { name: "NLP/sentiment analysis: transformers, torch", color: "orange-text-gradient" },
-      { name: "Trading/Backtesting: backtesting.py", color: "orange-text-gradient" },
-      { name: "Web/Cloud deployment: fastapi, uvicorn, streamlit", color: "orange-text-gradient" },
-      
-    ],
-    image: ai1,
-    image2: ai2,
-    image3: ai3,
-    image4: ai4,
-    image5: ai5,
-    image6: ai6,
-    image7: ai7,
-    image8: ai8,
-    image9: ai9,
-    source_code_link: "#",
-    live_demo_link: "#",
-    detail_page: "/projects/stock-prediction",
-    metrics: {
-      returns: "+7000% / year",
-      profit_factor: "1.22+",
-      uptime: "99.9%"
-    },
-  },
     {
     name: "Starbucks Inventory Management",
     description:
@@ -341,32 +261,6 @@ export const projects = [
       uptime: "99.5%"
     },
   },
-    {
-    name: "Real Estate Management Platform",
-    description:
-      "Comprehensive real estate platform with property listings, virtual tours, and customer management. Built with modern web technologies for seamless property discovery and management.",
-    category: "Full-stack",
-    status: "completed",
-    tags: [
-      { name: "Next.js", color: "blue-text-gradient" },
-      { name: "PostgreSQL", color: "green-text-gradient" },
-      { name: "Full-stack", color: "green-text-gradient" },
-      { name: "Stripe", color: "pink-text-gradient" },
-      { name: "Tailwind CSS", color: "yellow-text-gradient" },
-    ],
-    image: real1,
-    image2: real2,
-    image3:  real3,
-    source_code_link: "https://github.com/yoonus-k/cpcs_241_db",
-    live_demo_link: "#",
-    detail_page: "/projects/real-estate",
-    metrics: {
-      performance: "90%",
-      users: "TBD",
-      uptime: "99.5%"
-    },
-  },
-
   {
     name: "Personal Portfolio Website",
     description:
@@ -395,51 +289,4 @@ export const projects = [
       uptime: "100%"
     },
   },
-  {
-    name: "Course Registration System",
-    description:
-      "Chrome extension built with JavaScript and Bootstrap to streamline course registration during high traffic. Uses Chrome messaging technology for automated registration at specified times.",
-    category: "Tools",
-    status: "completed",
-    tags: [
-      { name: "JavaScript", color: "blue-text-gradient" },
-      { name: "Chrome Extension", color: "green-text-gradient" },
-      { name: "Bootstrap", color: "pink-text-gradient" },
-      { name: "Automation", color: "yellow-text-gradient" },
-    ],
-    image: reg,
-    source_code_link: "https://github.com/yoonus-k/Odus_Reg",
-    live_demo_link: "#",
-    detail_page: "/projects/registration-system",
-    metrics: {
-      speed_up: "95%+",
-      users: "300+",
-      uptime: "99.7%"
-    },
-  },
-  {
-    name: "AI Chess Engine",
-    description:
-      "Python-based Chess AI utilizing enhanced alpha-beta pruning algorithm. Features adjustable algorithm depth and choice between manual or AI mode for challenging gameplay.",
-    category: "AI/Gaming",
-    status: "completed",
-    tags: [
-      { name: "Python", color: "blue-text-gradient" },
-      { name: "AI Algorithm", color: "green-text-gradient" },
-      { name: "Alpha-Beta Pruning", color: "pink-text-gradient" },
-      { name: "Game Development", color: "yellow-text-gradient" },
-    ],
-    image: chess,
-    image2: chess2,
-    image3: chess3,
-    source_code_link: "https://github.com/yoonus-k/Chess_AI_Python",
-    live_demo_link: "#",
-    detail_page: "/projects/ai-chess",
-    metrics: {
-      performance: "Expert",
-      accuracy: "92%+",
-      speed: "X5",
-    },
-  },
-
 ];
